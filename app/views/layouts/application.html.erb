@@ -7,6 +7,34 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <nav class="navbar navbar-inverse">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav_right" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" id="brand" href="/">List Generator</a>
+        <% if user_signed_in? %>
+          <p class="navbar-text">Hello <%= current_user.first_name %>!</p>
+        <% end %>
+      </div>
+
+      <div class="collapse navbar-collapse" id="nav_right">
+        <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+            <li><a href="/users/edit">Settings</a></li>
+            <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li><a href="/users/sign_in">Log In</a></li>
+            <li><a href="/users/sign_up">Sign Up</a></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
 <%= yield %>
 
