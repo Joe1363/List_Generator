@@ -3,5 +3,9 @@ class ListsController < ApplicationController
 
 
   def main
+    if user_signed_in?
+      redirect_to '/users/index'
+    end
   end
+  
 end
