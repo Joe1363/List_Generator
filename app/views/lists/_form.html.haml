@@ -1,0 +1,10 @@
+= form_for @list, url: {action: "create", controller: "lists"} do |f|
+  - if @list.errors.any?
+    #errors_explanations
+      %h2= "#{pluralize(@lists.errors.count, "error")} prohibited this product_type from being saved"
+      %ul
+        -@lists.errors.full_messages.each do |message|
+          %li= message
+  .form-group.text-center
+    = f.label :name
+    = f.text_field :name

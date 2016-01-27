@@ -1,2 +1,6 @@
 %h2.text-center= "Create New Document"
 %br
+.container
+  = render "form"
+  %br
+  = link_to "Back", "/users/#{current_user.id}"
