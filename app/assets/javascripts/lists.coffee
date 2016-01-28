@@ -4,7 +4,7 @@
 jQuery ->
   $('form').on 'click', '.remove_element', (event) ->
     $(this).prev('input[type=hidden]').val('1')
-    $(this).closest('fieldset').hide()
+    $(this).closest('.form-group').hide()
     event.preventDefault()
 
   time = 1

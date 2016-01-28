@@ -1,8 +1,9 @@
 .form-group.text-center
-  %label{for: "text_field"}= "Text"
+  = f.hidden_field :type, value: element_type
+  = f.label :content
   %br
-  %input{type: "hidden", name: "list[content][#{id}][type]", value: type}
-  %textarea{form: "new_list", cols: "60", rows: "4", placeholder: "Type your stuff", name: "list[content][#{id}][content]"}
+  = f.text_area :content, cols: "60", rows: "4", placeholder: "Type your stuff"
+  = f.hidden_field :_destroy
   %br
-  %input{type: "hidden", class: "remove_fields"}
   = link_to "[Remove]", "#", class: "remove_element"
+  %br

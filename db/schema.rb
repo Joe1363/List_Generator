@@ -25,23 +25,9 @@ ActiveRecord::Schema.define(version: 20160128193054) do
     t.datetime "updated_at",   null: false
   end
 
-  create_table "elements_tables", force: :cascade do |t|
-    t.integer "order_number"
-    t.integer "list_id"
-    t.string  "type"
-    t.string  "content"
-  end
-
   create_table "lists", force: :cascade do |t|
     t.string   "name",       null: false
     t.integer  "user_id"
-    t.string   "properties"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "orders", force: :cascade do |t|
-    t.string   "name",       null: false
     t.string   "properties"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
