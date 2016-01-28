@@ -14,7 +14,7 @@ class ListsController < ApplicationController
   def create
     @list = List.new(list_params)
     @list.user_id = current_user.id
-1/0
+
     respond_to do |format|
       if @list.save
         format.html { redirect_to @list, notice: 'List was successfully created.' }
@@ -46,6 +46,6 @@ class ListsController < ApplicationController
 
   private
     def list_params
-      params.require(:list).permit(:id, :name, :properties => [], elements_attributes: [:id, :list_id, :order_number, :type, :content])
+      params.require(:list).permit(:id, :name, :properties => [], elements_attributes: [:id, :list_id, :order_number, :element_type, :content])
     end
 end

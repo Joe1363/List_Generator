@@ -12,5 +12,6 @@ jQuery ->
     # time = new Date().getTime()
     regexp = new RegExp($(this).data('id'), 'g')
     $(this).before($(this).data('fields').replace(regexp, time))
+    $('form .order_number').last().val(time)
     time += 1
     event.preventDefault()
