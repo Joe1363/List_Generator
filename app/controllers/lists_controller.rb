@@ -33,6 +33,11 @@ class ListsController < ApplicationController
   def update
   end
 
+  def show
+    @list = current_user.lists.find(params[:id])
+    @elements = @list.properties
+  end
+
   def destroy
     @list = List.find(params[:id])
     @list.destroy
