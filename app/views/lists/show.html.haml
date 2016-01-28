@@ -1,5 +1,7 @@
-%h1.text-center= @list.name
-%br
-- @elements.each do |a|
-  %p= a[:type]
+.container
+  %h1.text-center= @list.name
   %br
+  - @list.elements.each do |a|
+    - if a.element_type == "text"
+      %p= a.content
+      %br

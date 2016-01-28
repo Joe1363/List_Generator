@@ -34,7 +34,6 @@ class ListsController < ApplicationController
 
   def show
     @list = current_user.lists.find(params[:id])
-    @elements = @list.properties
   end
 
   def destroy
