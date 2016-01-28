@@ -27,6 +27,12 @@ class ListsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+  end
+
   def destroy
     @list = List.find(params[:id])
     @list.destroy
