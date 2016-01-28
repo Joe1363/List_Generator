@@ -3,7 +3,7 @@ class ListsController < ApplicationController
 
   def main
     if user_signed_in?
-      redirect_to '/users/index'
+      redirect_to "/users/#{current_user.id}"
     end
   end
 
