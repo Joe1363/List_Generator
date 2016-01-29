@@ -1,5 +1,6 @@
 .container
   %h1.text-center= @list.name
+  %p.text-center= "Created: #{@list.created_at.strftime("%m-%d-%y")} | Last Updated: #{@list.updated_at.strftime("%m-%d-%y")}"
   %p.text-center
     = link_to "Edit", edit_list_path(@list.id)
     |
