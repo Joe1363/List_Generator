@@ -1,5 +1,9 @@
 .container
   %h1.text-center= @list.name
+  %p.text-center
+    = link_to "Edit", edit_list_path(@list.id)
+    |
+    = link_to 'Delete', "/lists/#{@list.id}", data: {confirm: "Are you sure you want to delete this list?"} , method: :delete
   %br
   - @list.elements.each do |a|
     - if a.element_type == "text"
