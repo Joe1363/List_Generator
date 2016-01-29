@@ -5,17 +5,17 @@
     = link_to "Create New List", new_list_path, class: "btn btn-default"
   %br
   .row
-    .col-md-6
+    .col-md-5.col-md-offset-2
       %h4.underline= "Title"
     .col-md-1
       %h4.underline= "Created"
     .col-md-1
       %h4.underline= "Edited"
-    .col-md-2
+    .col-md-1
       %h4.underline= "Options"
   - @user.lists.each do |a|
     .row
-      .col-md-6
+      .col-md-5.col-md-offset-2
         %p
           = link_to a.name, list_path(a.id), class: "link_mod"
       .col-md-1
