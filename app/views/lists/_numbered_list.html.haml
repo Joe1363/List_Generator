@@ -1,13 +1,9 @@
 .form-group.text-center
   = f.hidden_field :element_type, value: element_type
-  = f.label "Text"
+  = f.label "Numbered List"
   %br
-  .row
-    = f.text_area :content, class: "col-md-8 col-md-offset-2", rows: "6", placeholder: "Type your stuff"
+  %ol
   = f.hidden_field :order_number, class: "order_number", value: ""
   = f.hidden_field :_destroy
   = link_to "[Remove]", "#", class: "remove_element"
   %br
-  .row
-    .col-md-8.col-md-offset-2
-      %hr

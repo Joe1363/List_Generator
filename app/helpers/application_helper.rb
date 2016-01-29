@@ -4,7 +4,7 @@ module ApplicationHelper
     id = new_object.object_id
 
     fields = f.fields_for(association, new_object, child_index: id) do |builder|
-      render "text", f: builder, element_type: element_type
+      render element_type, f: builder, element_type: element_type
     end
 
     link_to(name, '#', class: "add_element", data: {id: id, fields: fields.gsub("\n", "")})

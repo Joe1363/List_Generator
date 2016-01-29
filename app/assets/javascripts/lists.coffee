@@ -7,11 +7,10 @@ jQuery ->
     $(this).closest('.form-group').hide()
     event.preventDefault()
 
-  time = 1
+  count = 1
   $('form').on 'click', '.add_element', (event) ->
-    # time = new Date().getTime()
     regexp = new RegExp($(this).data('id'), 'g')
-    $(this).before($(this).data('fields').replace(regexp, time))
-    $('form .order_number').last().val(time)
-    time += 1
+    $('.element_links').before($(this).data('fields').replace(regexp, count))
+    $('form .order_number').last().val(count)
+    count += 1
     event.preventDefault()

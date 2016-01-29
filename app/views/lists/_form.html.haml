@@ -11,12 +11,16 @@
     = f.text_field :name, class: "col-md-6 col-md-offset-3 input-sm"
 
   = f.fields_for :elements do |a|
-    = render "text", f: a, element_type: "text"
+    = render a.element_type, f: a, element_type: a.element_type
 
   .row
-    .col-md-8.col-md-offset-2
-      = link_to_add_fields "Add Text Field", f, :elements, "text"
-      %br
+    .col-md-8.col-md-offset-2.element_links
+      %p
+        = link_to_add_fields "Add Text Field", f, :elements, "text"
+        |
+        = link_to_add_fields "Add Numbered List", f, :elements, "numbered_list"
+        |
+        = link_to_add_fields "Add Unordered List", f, :elements, "unordered_list"
       %br
       .actions
         = f.submit "Edit List", class: "btn btn-primary"
