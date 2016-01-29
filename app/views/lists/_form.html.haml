@@ -5,15 +5,18 @@
       %ul
         -@lists.errors.full_messages.each do |message|
           %li= message
-  .form-group.text-center
+  .form-group.text-center.row
     = f.label :name
-    = f.text_field :name
+    %br
+    = f.text_field :name, class: "col-md-6 col-md-offset-3 input-sm"
 
   = f.fields_for :elements do |a|
-    = render "text", f: a
+    = render "text", f: a, element_type: "text"
 
-  = link_to_add_fields "Add Text Field", f, :elements, "text"
-  %br
-  %br
-  .actions
-    = f.submit
+  .row
+    .col-md-8.col-md-offset-2
+      = link_to_add_fields "Add Text Field", f, :elements, "text"
+      %br
+      %br
+      .actions
+        = f.submit "Edit List", class: "btn btn-primary"
