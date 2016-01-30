@@ -1,11 +1,8 @@
 .form-group.text-center
-  = f.hidden_field :element_type, value: element_type
-  = f.label "Unordered List"
-  %br
-  %ul
-    = link_to_add_fields "Add List Item", f, :list_items, element_type
-
-  = f.hidden_field :order_number, class: "order_number", value: ""
-  = f.hidden_field :_destroy
-  = link_to "[Remove]", "#", class: "remove_element"
-  %br
+  %li
+    = f.hidden_field :list_type, value: element_type
+    = f.text_field :content, class: "col-md-8 col-md-offset-2", rows: "6", placeholder: "Type your stuff"
+    = f.hidden_field :order_number, class: "order_number", value: ""
+    = f.hidden_field :_destroy
+    = link_to "[Remove]", "#", class: "remove_element"
+    %br

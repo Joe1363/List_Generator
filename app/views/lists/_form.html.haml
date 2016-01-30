@@ -11,7 +11,7 @@
     = f.text_field :name, class: "col-md-6 col-md-offset-3 input-sm"
 
   = f.fields_for :elements do |a|
-    = render a.element_type, f: a, element_type: a.element_type
+    = render a.object.element_type, f: a, element_type: a.object.element_type
 
   .row
     .col-md-8.col-md-offset-2.element_links

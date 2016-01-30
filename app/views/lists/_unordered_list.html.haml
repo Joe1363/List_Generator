@@ -2,12 +2,12 @@
   = f.hidden_field :element_type, value: element_type
   = f.label "Unordered List"
   %br
-  = f.fields_for :list_items do |a|
-    = render "unordered_list", f: a
-  %ul
-    = link_to_add_fields "Add List Item", f, :list_items, element_type
-
   = f.hidden_field :order_number, class: "order_number", value: ""
   = f.hidden_field :_destroy
   = link_to "[Remove]", "#", class: "remove_element"
+  %ul
+    = f.fields_for :list_items do |a|
+      = render "list_item", f: a, element_type: element_type
+    .list_item_link
+      = link_to_add_fields "Add List Item", f, :list_items, "list_item"
   %br

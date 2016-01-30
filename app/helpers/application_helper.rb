@@ -6,8 +6,10 @@ module ApplicationHelper
     fields = f.fields_for(association, new_object, child_index: id) do |builder|
       render element_type, f: builder, element_type: element_type
     end
-
-    link_to(name, '#', class: "add_element", data: {id: id, fields: fields.gsub("\n", "")})
-
+    if element_type != "list_item"
+      link_to(name, '#', class: "add_element", data: {id: id, fields: fields.gsub("\n", "")})
+    else
+      link_to(name, '#', class: "add_list_item", data: {id: id, fields: fields.gsub("\n", "")})
+    end
   end
 end

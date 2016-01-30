@@ -57,6 +57,6 @@ class ListsController < ApplicationController
 
   private
     def list_params
-      params.require(:list).permit(:id, :name, :properties => [], elements_attributes: [:id, :list_id, :order_number, :element_type, :content])
+      params.require(:list).permit(:id, :name, :properties => [], elements_attributes: [:id, :list_id, :order_number, :element_type, :content, :_destroy, list_items_attributes: [:id, :element_id, :order_number, :list_type, :content, :_destroy]])
     end
 end

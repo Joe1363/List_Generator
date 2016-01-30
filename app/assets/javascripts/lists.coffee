@@ -14,3 +14,11 @@ jQuery ->
     $('form .order_number').last().val(count)
     count += 1
     event.preventDefault()
+
+  list_count = 1
+  $('form').on 'click', '.add_list_item', (event) ->
+    regexp = new RegExp($(this).data('id'), 'g')
+    $('.add_list_item').before($(this).data('fields').replace(regexp, list_count))
+    $('form .order_number').last().val(list_count)
+    list_count += 1
+    event.preventDefault()
