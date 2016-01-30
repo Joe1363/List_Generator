@@ -7,18 +7,21 @@ jQuery ->
     $(this).closest('.form-group').hide()
     event.preventDefault()
 
-  count = 1
+  count = 0
   $('form').on 'click', '.add_element', (event) ->
+    namespace = $(this).data('namespace') + count
+    count = namespace
+    alert(count)
     regexp = new RegExp($(this).data('id'), 'g')
     $('.element_links').before($(this).data('fields').replace(regexp, count))
-    $('form .order_number').last().val(count)
+    # $('form .order_number').last().val(count)
     count += 1
     event.preventDefault()
 
-  list_count = 1
+  list_count = 0
   $('form').on 'click', '.add_list_item', (event) ->
     regexp = new RegExp($(this).data('id'), 'g')
     $('.add_list_item').before($(this).data('fields').replace(regexp, list_count))
-    $('form .order_number').last().val(list_count)
+    # $('form .order_number').last().val(list_count)
     list_count += 1
     event.preventDefault()
