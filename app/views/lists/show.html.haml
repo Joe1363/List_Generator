@@ -6,7 +6,12 @@
     |
     = link_to 'Delete', "/lists/#{@list.id}", data: {confirm: "Are you sure you want to delete this list?"} , method: :delete
   %br
-  - @list.elements.each do |a|
+  - @elements.each do |a|
     - if a.element_type == "text"
       %p= a.content
       %br
+    - elsif a.element_type == "unordered_list"
+      - if a.list_items != nil
+        %ul
+          - a.list_items.each do |i|
+            %li= i.content
