@@ -17,8 +17,4 @@ module ApplicationHelper
       link_to(name, '#', class: "add_list_item", data: {id: id, fields: fields.gsub("\n", ""), namespace: namespace})
     end
   end
-
-  # def order_numbering f
-  #   if f.class == "Element"
-  # end
 end

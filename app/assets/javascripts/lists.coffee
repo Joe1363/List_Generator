@@ -9,11 +9,11 @@ jQuery ->
 
   count = 0
   $('form').on 'click', '.add_element', (event) ->
-    namespace = $(this).data('namespace') + count
-    count = namespace
+    namespace = $(this).data('namespace')
+    num = namespace + count
     regexp = new RegExp($(this).data('id'), 'g')
-    $('.element_links').before($(this).data('fields').replace(regexp, count))
-    # $('form .order_number').last().val(count)
+    $('.element_links').before($(this).data('fields').replace(regexp, num))
+    $('form .order_number').last().val(num)
     count += 1
     event.preventDefault()
 
@@ -22,7 +22,7 @@ jQuery ->
     namespace = $(this).data('namespace') + list_count
     list_count = namespace
     regexp = new RegExp($(this).data('id'), 'g')
-    $('.add_list_item').before($(this).data('fields').replace(regexp, list_count))
+    $(this).closest('.add_list_item').before($(this).data('fields').replace(regexp, list_count))
     # $('form .order_number').last().val(list_count)
     list_count += 1
     event.preventDefault()
