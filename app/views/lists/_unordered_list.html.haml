@@ -4,10 +4,13 @@
   %br
   = f.hidden_field :order_number, class: "order_number", value: ""
   = f.hidden_field :_destroy
-  = link_to "[Remove]", "#", class: "remove_element"
-  %ul
+  %ul.form_list
     = f.fields_for :list_items do |a|
       = render "list_item", f: a, element_type: element_type
     .list_item_link
       = link_to_add_fields "Add List Item", f, :list_items, "list_item"
+  = link_to "[Remove From List]", "#", class: "remove_element"
   %br
+  .row
+    .col-md-8.col-md-offset-2
+      %hr
